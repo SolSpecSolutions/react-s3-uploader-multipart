@@ -30,6 +30,7 @@
     "evaporate": "2.1.4",
     "object-assign": "^2.0.0",
     "prop-types": "^15.5.8",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "jszip": "latest"
   }
 }

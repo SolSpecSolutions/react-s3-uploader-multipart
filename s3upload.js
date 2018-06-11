@@ -4,7 +4,7 @@
  */
 
 var Evaporate = require('evaporate');
-
+var JSZip = require('jszip');
 
 S3Upload.prototype.server = '';
 S3Upload.prototype.signingUrl = '/sign-s3';
@@ -18,8 +18,10 @@ S3Upload.prototype.onFinishS3Put = function(signResult, file) {
 };
 
 S3Upload.prototype.preprocess = function(file, next) {
-    console.log('base.preprocess()', file);
-    return next(file);
+    var zip = new JSZip();
+    zipped = zip.file(file.name, file);
+    console.log('base.preprocess()', zipped);
+    return next(zipped);
 };
 
 S3Upload.prototype.onProgress = function(percent, status, file) {
